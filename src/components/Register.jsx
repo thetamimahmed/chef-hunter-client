@@ -4,13 +4,30 @@ import {Link} from 'react-router-dom';
 import { AuthContext } from './Providers/AuthProvider';
 
 const Register = () => {
-    const {user} = useContext(AuthContext)
-    console.log(user)
+    const {createUser} = useContext(AuthContext)
+
+    const handleRegister = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photoUrl = form.photourl.value;
+        console.log(name, email, password, photoUrl)
+        createUser(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser)
+        })
+        .catch(error =>{
+            console.log(error.message)
+        })
+    }
 
     return (
         <div>
             <h3 className='text-center my-3 primary-color'>Please Register Your Account</h3>
-            <Form className='w-50 mx-auto'>
+            <Form onSubmit={handleRegister} className='w-50 mx-auto'>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" name='name' placeholder="Enter name" required />
