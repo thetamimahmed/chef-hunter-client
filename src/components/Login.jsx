@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { AuthContext } from './Providers/AuthProvider';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
     const {logInUser, googleLogIn, githubLogIn} = useContext(AuthContext);
@@ -16,7 +18,7 @@ const Login = () => {
         logInUser(email, password)
         .then(result => {
             const loggedUser = result.user;
-            console.log(loggedUser)
+            toast('Login Successfull')
             form.reset()
         })
         .catch(error => {
@@ -28,7 +30,7 @@ const Login = () => {
         googleLogIn()
         .then(result =>{
             const loggedUser = result.user;
-            console.log(loggedUser)
+            toast('Login Successfull')
         })
         .catch(error =>{
             setErrorMessage(error.message)
@@ -39,7 +41,7 @@ const Login = () => {
         githubLogIn()
         .then(result =>{
             const loggedUser = result.user;
-            console.log(loggedUser)
+            toast('Login Successfull')
         })
         .catch(error =>{
             setErrorMessage(error.message)
@@ -71,6 +73,7 @@ const Login = () => {
                 <p className='mt-2'>New in Italian Chef Hunter? <span><Link className='primary-color' to={"/register"}>Register</Link></span></p>
                 <p className='mt-2fw-bold text-danger'>{errorMessage}</p>
             </Form>
+            <ToastContainer/>
         </div>
     );
 };

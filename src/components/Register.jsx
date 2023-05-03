@@ -3,10 +3,13 @@ import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from './Providers/AuthProvider';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState('')
+    const [success, setSuccess] = useState('')
 
     const handleRegister = event => {
         event.preventDefault();
@@ -17,10 +20,12 @@ const Register = () => {
         const photoUrl = form.photourl.value;
 
         setErrorMessage('')
+        if(password.length < 6){
+            setErrorMessage('Provide 6 character password')
+        }
         createUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser)
                 form.reset()
                 //user profile update
                 updateProfile(loggedUser, {
@@ -32,21 +37,12 @@ const Register = () => {
                   .catch((error) => {
                     
                   });
+                  setSuccess(toast('Register Successfull'))
             })
             .catch(error => {
-                setErrorMessage(error.message)
+                // setErrorMessage(error.message)
             })
 
-            const handleGoogleLogIn = () =>{
-                googleLogIn()
-                .then(result =>{
-                    const loggedUser = result.user;
-                    console.log(loggedUser)
-                })
-                .catch(error =>{
-                    setErrorMessage(error.message)
-                })
-            }
     }
 
     return (
@@ -78,6 +74,7 @@ const Register = () => {
                 <p className='mt-2'>Already have an account? <span><Link className='primary-color' to={"/login"}>Log In</Link></span></p>
                 <p className='mt-2fw-bold text-danger'>{errorMessage}</p>
             </Form>
+            <ToastContainer/>
         </div>
     );
 };
