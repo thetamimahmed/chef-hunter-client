@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate, useLocation} from 'react-router-dom';
 import { AuthContext } from './Providers/AuthProvider';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
     const {logInUser, googleLogIn, githubLogIn} = useContext(AuthContext);
-    const [errorMessage, setErrorMessage] = useState('')
+    const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogIn = event =>{
         event.preventDefault();
@@ -20,6 +23,7 @@ const Login = () => {
             const loggedUser = result.user;
             toast('Login Successfull')
             form.reset()
+            navigate(from, { replace: true })
         })
         .catch(error => {
             setErrorMessage(error.message)
@@ -31,6 +35,7 @@ const Login = () => {
         .then(result =>{
             const loggedUser = result.user;
             toast('Login Successfull')
+            navigate(from, { replace: true })
         })
         .catch(error =>{
             setErrorMessage(error.message)
@@ -42,6 +47,7 @@ const Login = () => {
         .then(result =>{
             const loggedUser = result.user;
             toast('Login Successfull')
+            navigate(from, { replace: true })
         })
         .catch(error =>{
             setErrorMessage(error.message)

@@ -15,6 +15,7 @@ import ErrorPage from './components/ErrorPage.jsx';
 import AuthProvider from './components/Providers/AuthProvider.jsx';
 import ChefDetails from './components/Chefs/ChefRecipes.jsx';
 import ChefRecipes from './components/Chefs/ChefRecipes.jsx';
+import PrivateRoute from './components/route/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/chef/:id',
-        element: <ChefRecipes></ChefRecipes>,
+        element: <PrivateRoute><ChefRecipes></ChefRecipes></PrivateRoute>,
         loader: ({params}) => fetch(`https://chef-recipe-hunter-server-thetamimahmed.vercel.app/chefs/${params.id}`)
       }
     ]
