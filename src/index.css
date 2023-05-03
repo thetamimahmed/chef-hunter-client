@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@import '@smastrom/react-rating/style.css';
+
 *{
     font-family: 'Bree Serif', serif;
 }

@@ -24,10 +24,10 @@ const ChefRecipes = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <h2 className='text-center my-3 primary-color'>{chef_name}s Recipes</h2>
+                <h2 className='text-center mt-5 mb-3 primary-color'>{chef_name}s Recipes</h2>
+            <div className='row row-cols-1 row-cols-md-2 g-4'>
                 {
-                    recipes.map(recipe => <Recipe key={id} recipe={recipe}></Recipe>)
+                    recipes.map(recipe => <Recipe key={recipe.recipe_id} recipe={recipe}></Recipe>)
                 }
             </div>
         </div>
