@@ -1,9 +1,12 @@
+import { getAuth, updateProfile } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import app from '../firebase/firebase.config';
 import { AuthContext } from './Providers/AuthProvider';
 
 const Register = () => {
+    const auth = getAuth(app)
     const { createUser } = useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState('')
 
@@ -15,15 +18,27 @@ const Register = () => {
         const password = form.password.value;
         const photoUrl = form.photourl.value;
 
+        setErrorMessage('')
         createUser(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
                 form.reset()
+                //user profile update
+                updateProfile(loggedUser, {
+                    displayName: name, photoURL: photoUrl
+                })
+                .then(() => {
+                    
+                  })
+                  .catch((error) => {
+                    
+                  });
             })
             .catch(error => {
                 setErrorMessage(error.message)
             })
+
     }
 
     return (
