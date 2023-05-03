@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import { AuthContext } from './Providers/AuthProvider';
 
 const Register = () => {
+    const {user} = useContext(AuthContext)
+    console.log(user)
+
     return (
         <div>
             <h3 className='text-center my-3 primary-color'>Please Register Your Account</h3>
             <Form className='w-50 mx-auto'>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" name='name' placeholder="Enter name" required />
                 </Form.Group>
@@ -22,7 +26,7 @@ const Register = () => {
                     <Form.Control type="password" name='password' placeholder="Password"  required/>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3" controlId="formBasicPhotourl">
                     <Form.Label>Photo url</Form.Label>
                     <Form.Control type="text" name='photourl' placeholder="Enter photo url" required />
                 </Form.Group>

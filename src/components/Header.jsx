@@ -15,10 +15,10 @@ const Header = () => {
                         className="me-auto ms-5 my-2 my-lg-0"
                         navbarScroll
                     >
-                        <Nav.Link> <Link to={'/'} className="text-decoration-none fs-5 secondary-color ms-4 secondary-color-hover">Home</Link> </Nav.Link>
-                        <Nav.Link> <Link to={'/blog'} className="text-decoration-none fs-5 secondary-color ms-4 secondary-color-hover">Blog</Link> </Nav.Link>
-                        <Nav.Link> <Link to={'/login'} className="text-decoration-none fs-5 secondary-color ms-4 secondary-color-hover">Login</Link> </Nav.Link>
-                        <Nav.Link> <Link to={'/register'} className="text-decoration-none fs-5 secondary-color ms-4 secondary-color-hover">Register</Link> </Nav.Link>
+                        <Link to={'/'} className="text-decoration-none fs-5 secondary-color ms-4 secondary-color-hover">Home</Link>
+                        <Link to={'/blog'} className="text-decoration-none fs-5 secondary-color ms-4 secondary-color-hover">Blog</Link>
+                        <Link to={'/login'} className="text-decoration-none fs-5 secondary-color ms-4 secondary-color-hover">Login</Link>
+                        <Link to={'/register'} className="text-decoration-none fs-5 secondary-color ms-4 secondary-color-hover">Register</Link>
                     </Nav>
                     <div>
                         <button className='btn btn-primary'>Login</button>
