@@ -11,3 +11,12 @@
 .secondary-color-hover:hover{
     color: #d35400;
 }
+
+.custom-btn{
+   background-color: #d35400;
+   font-size: 20px;
+   border: 0;
+}
+.custom-btn:hover{
+    background-color: #232323;
+}
