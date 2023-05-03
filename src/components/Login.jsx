@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { AuthContext } from './Providers/AuthProvider';
 
 const Login = () => {
     const {logInUser} = useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState('')
 
     const handleLogIn = event =>{
         event.preventDefault();
@@ -19,7 +20,7 @@ const Login = () => {
             form.reset()
         })
         .catch(error => {
-            console.log(error.message)
+            setErrorMessage(error.message)
         })
     }
 
@@ -41,6 +42,7 @@ const Login = () => {
                     Submit
                 </Button>
                 <p className='mt-2'>New in Italian Chef Hunter? <span><Link className='primary-color' to={"/register"}>Register</Link></span></p>
+                <p className='mt-2fw-bold text-danger'>{errorMessage}</p>
             </Form>
         </div>
     );
