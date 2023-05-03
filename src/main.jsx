@@ -13,6 +13,8 @@ import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import AuthProvider from './components/Providers/AuthProvider.jsx';
+import ChefDetails from './components/Chefs/ChefRecipes.jsx';
+import ChefRecipes from './components/Chefs/ChefRecipes.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path:'/chef/:id',
+        element: <ChefRecipes></ChefRecipes>,
+        loader: ({params}) => fetch(`https://chef-recipe-hunter-server-thetamimahmed.vercel.app/chefs/${params.id}`)
       }
     ]
   },
