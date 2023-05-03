@@ -31,3 +31,11 @@
     height: 500px;
     
 }
+
+.error-banner{
+    background: linear-gradient( rgba(0, 0, 0, 0.605), rgba(0, 0, 0, 0.645)), url('/public/images/404.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
