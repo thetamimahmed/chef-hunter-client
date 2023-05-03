@@ -9,7 +9,7 @@ const Home = () => {
     
     return (
         <div>
-            <div className='banner text-white d-flex align-items-center'>
+            <div className='banner text-white d-flex align-items-center mb-5'>
                 <h1 className='text-center w-75 mx-auto'>Experience the ultimate culinary adventure with our diverse range of recipes!</h1>
             </div>
 
