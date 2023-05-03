@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import { AuthContext } from './Providers/AuthProvider';
 
 const Login = () => {
-    const {logInUser, googleLogIn} = useContext(AuthContext);
+    const {logInUser, googleLogIn, githubLogIn} = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState('')
 
     const handleLogIn = event =>{
@@ -34,6 +34,17 @@ const Login = () => {
             setErrorMessage(error.message)
         })
     }
+
+    const handleGithubLogin = () =>{
+        githubLogIn()
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser)
+        })
+        .catch(error =>{
+            setErrorMessage(error.message)
+        })
+    }
     return (
         <div>
             <h3 className='text-center primary-color my-3'>Please Login Your Account</h3>
@@ -54,7 +65,7 @@ const Login = () => {
                 <Button onClick={handleGoogleLogIn} className='custom-btn mx-2' variant="primary" type="submit">
                     Login with google
                 </Button>
-                <Button className='custom-btn mx-2' variant="primary" type="submit">
+                <Button onClick={handleGithubLogin} className='custom-btn mx-2' variant="primary" type="submit">
                     Login with github
                 </Button>
                 <p className='mt-2'>New in Italian Chef Hunter? <span><Link className='primary-color' to={"/register"}>Register</Link></span></p>
