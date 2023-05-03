@@ -22,7 +22,8 @@ const router = createBrowserRouter([
     children: [
       {
         path:'/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('https://chef-recipe-hunter-server-thetamimahmed.vercel.app/chefs')
       },
       {
         path: '/blog',
