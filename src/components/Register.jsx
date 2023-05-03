@@ -1,12 +1,10 @@
-import { getAuth, updateProfile } from 'firebase/auth';
+import { updateProfile } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import app from '../firebase/firebase.config';
 import { AuthContext } from './Providers/AuthProvider';
 
 const Register = () => {
-    const auth = getAuth(app)
     const { createUser } = useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState('')
 
@@ -39,6 +37,16 @@ const Register = () => {
                 setErrorMessage(error.message)
             })
 
+            const handleGoogleLogIn = () =>{
+                googleLogIn()
+                .then(result =>{
+                    const loggedUser = result.user;
+                    console.log(loggedUser)
+                })
+                .catch(error =>{
+                    setErrorMessage(error.message)
+                })
+            }
     }
 
     return (
