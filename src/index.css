@@ -2,3 +2,12 @@
 *{
     font-family: 'Bree Serif', serif;
 }
+.primary-color, .primary-color:hover{
+    color: #d35400;
+}
+.secondary-color{
+    color: #232323;
+}
+.secondary-color-hover:hover{
+    color: #d35400;
+}
