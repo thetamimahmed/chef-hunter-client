@@ -32,8 +32,8 @@ const Recipe = ({ recipe }) => {
                         <div className='w-50 me-2'>
                             <h5 className='primary-color'>Ingredients</h5>
                             {
-                                ingredients?.map((ingredient, index) =>  <ul className="list-group">
-                                <li key={index} className="list-group-item">{ingredient}</li>
+                                ingredients?.map((ingredient, i) =>  <ul className="list-group">
+                                <li key={i} className="list-group-item">{ingredient}</li>
                               </ul>)
                             }
                         </div>
