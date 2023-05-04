@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from './Providers/AuthProvider';
+import ActiveLink from './route/ActiveLink';
 
 const Header = () => {
     const { user, logOutUser } = useContext(AuthContext)
@@ -26,10 +27,10 @@ const Header = () => {
                         className="mx-auto my-2 my-lg-0"
                         navbarScroll
                     >
-                        <Link to={'/'} className="text-decoration-none fs-5 secondary-color ms-4 secondary-color-hover">Home</Link>
-                        <Link to={'/blog'} className="text-decoration-none fs-5 secondary-color ms-4 secondary-color-hover">Blog</Link>
-                        <Link to={'/login'} className="text-decoration-none fs-5 secondary-color ms-4 secondary-color-hover">Login</Link>
-                        <Link to={'/register'} className="text-decoration-none fs-5 secondary-color ms-4 secondary-color-hover">Register</Link>
+                        <ActiveLink to={'/'}>Home</ActiveLink>
+                        <ActiveLink to={'/blog'}>Blog</ActiveLink>
+                        <ActiveLink to={'/login'}>Login</ActiveLink>
+                        <ActiveLink to={'/register'}>Register</ActiveLink>
                     </Nav>
                     <div>
                         {
