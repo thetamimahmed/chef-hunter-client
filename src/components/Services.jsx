@@ -4,7 +4,7 @@ const Services = () => {
     return (
         <div>
             <h1 className='text-center primary-color my-3'>Our Services</h1>
-            <div className='container shadow p-5 rounded d-flex justify-content-between'>
+            <div className='container-lg shadow p-5 rounded d-flex flex-column flex-lg-row justify-content-between'>
                 <div className='text-center'>
                     <img className='services-icon' src="/public/images/rolodex.jpg" alt="" />
                     <h4 className='primary-color'>Recipe Rolodex</h4>

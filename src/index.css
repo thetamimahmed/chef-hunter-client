@@ -44,9 +44,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 300px;
     color: white;
-    padding: 10px;
+    padding-bottom: 10px;
+}
+.footer-padding{
+    padding: 20px;
 }
 
 .active{

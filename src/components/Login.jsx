@@ -70,10 +70,10 @@ const Login = () => {
                 <Button className='custom-btn' variant="primary" type="submit">
                     Submit
                 </Button>
-                <Button onClick={handleGoogleLogIn} className='custom-btn mx-2' variant="primary" type="submit">
+                <Button onClick={handleGoogleLogIn} className='custom-btn mx-lg-2 my-2' variant="primary" type="submit">
                     Login with google
                 </Button>
-                <Button onClick={handleGithubLogin} className='custom-btn mx-2' variant="primary" type="submit">
+                <Button onClick={handleGithubLogin} className='custom-btn mx-lg-2' variant="primary" type="submit">
                     Login with github
                 </Button>
                 <p className='mt-2'>New in Italian Chef Hunter? <span><Link className='primary-color' to={"/register"}>Register</Link></span></p>

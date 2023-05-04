@@ -4,6 +4,7 @@ import {useLoaderData} from 'react-router-dom';
 import ChefsCard from './Chefs/Chefs.jsx';
 import Chefs from './Chefs/Chefs.jsx';
 import Services from './Services.jsx';
+import Reviews from './Reviews.jsx';
 
 const Home = () => {
     const chefs = useLoaderData()
@@ -16,6 +17,7 @@ const Home = () => {
 
             <Services></Services>
             <Chefs chefs={chefs}></Chefs>
+            <Reviews></Reviews>
         </div>
     );
 };
