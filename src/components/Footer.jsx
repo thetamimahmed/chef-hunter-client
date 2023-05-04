@@ -10,7 +10,7 @@ const Footer = () => {
                     <p className='text-center'>Connect with authentic Italian chefs from around the world and experience the best of Italian cuisine. Our platform features a curated selection of passionate and talented chefs who are dedicated to sharing their knowledge and creativity with food enthusiasts like you.</p>
                 </div>
                 <div className='d-flex flex-column w-lg-25'>
-                    <h3 className='primary-color'>Quick Links</h3>
+                    <h3 className='primary-colorgit remote -v'>Quick Links</h3>
                     <Link to={'/'} className="text-decoration-none fs-5 text-white ms-4 ">Home</Link>
                     <Link to={'/blog'} className="text-decoration-none fs-5 text-white ms-4 ">Blog</Link>
                     <Link to={'/login'} className="text-decoration-none fs-5 text-white ms-4 ">Login</Link>
