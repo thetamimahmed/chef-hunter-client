@@ -40,7 +40,7 @@ const Register = () => {
                   setSuccess(toast('Register Successfull'))
             })
             .catch(error => {
-                // setErrorMessage(error.message)
+                // setErrorMessagee(error.message)
             })
 
     }
